@@ -92,4 +92,4 @@ module.exports = {
     registerUser,
     loginUser,
     getMe,
-}
+};
