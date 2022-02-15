@@ -1,3 +1,4 @@
+
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -53,7 +54,7 @@ const registerUser = asyncHandler(async (req, res) => {
 //@access        Public
 const loginUser = asyncHandler(async (req, res) => {
    
-    const user = await User.findOne({email})
+    const user = await User.findOne({ email })
 
 // Check usernand password match
     if(user && (await bcrypt.compare(password, user.password))){
