@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+
 const User = require('../modles/userModel')
 
 //@description   Register a new user
@@ -33,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.create({
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
     })
 
     if(user) {
@@ -53,7 +54,7 @@ const registerUser = asyncHandler(async (req, res) => {
 //@route         /api/users/login
 //@access        Public
 const loginUser = asyncHandler(async (req, res) => {
-   
+   const { email, password } = req.body
     const user = await User.findOne({ email })
 
 // Check usernand password match
