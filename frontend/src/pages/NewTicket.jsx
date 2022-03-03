@@ -30,7 +30,7 @@ function NewTicket() {
       navigate('/tickets')
     }
 
-    dispatch(reset)
+    dispatch(reset())
   }, [dispatch, isError, isSuccess, navigate, message])
 
 
